@@ -18,7 +18,7 @@ use App\Http\Controllers\PhotoController;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
-*/
+
 
 Route::get('/hello', function () {
     return 'Hello World';
@@ -77,3 +77,11 @@ Route::resource('photos', PhotoController::class)->only([
    Route::resource('photos', PhotoController::class)->except([
     'create', 'store', 'update', 'destroy'
    ]);
+
+Route::get('/greeting', function () {
+    return view('blog.hello', ['name' => 'Nur Ayu']);
+});
+*/
+
+Route::get('/greeting', [WelcomeController::class,
+'greeting']);
